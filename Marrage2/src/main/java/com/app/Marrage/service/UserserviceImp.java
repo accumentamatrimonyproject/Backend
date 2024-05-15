@@ -1,4 +1,4 @@
-package com.app.Marrage.model.service;
+package com.app.Marrage.service;
 
 import java.util.List;
 

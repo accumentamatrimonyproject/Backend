@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.Marrage.model.User;
-import com.app.Marrage.model.service.UserServiceInterface;
+
+import com.app.Marrage.service.UserserviceImp;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:5173/")
@@ -20,7 +21,7 @@ public class UserController {
 	
 	
 	@Autowired
-	UserServiceInterface userservice;
+	UserserviceImp userservice;
 	
 	@GetMapping("/test")
 	public String test()
