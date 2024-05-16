@@ -18,4 +18,17 @@ public interface Userrepository extends JpaRepository<User, Long> {
 
 	  List<User> findByGender(String gender);
 
+	  List<User> findByAgeBetween(int startAge, int endAge);
+
+	  List<User> findByIncomeBetween(Long startIncome, Long endIncome);
+
+	  List<User> findByCaste(String caste);
+
+	List<User> findByReligion(String religion);
+    
+	@Query("SELECT u FROM User u WHERE u.occupation LIKE %:occupation%")
+	List<User> findByOccupation( @Param("occupation")String occupation);
+	  
+	  
+
 }

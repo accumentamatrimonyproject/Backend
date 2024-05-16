@@ -23,7 +23,7 @@ public class User {
 	@Column(unique = true)
 	Long mobileNumber;
 	LocalDate dateOfBirth;
-	String Religion;
+	String religion;
 	String motherToung;
 	@Column(unique = true)
 	String emailId;
@@ -39,9 +39,10 @@ public class User {
 	String highestEducation;
 	String EmployementType;
 	String occupation;
-	Long annualIncome;
+	Long income;
 	String WorkLocation;
 	int age;
+	
 	@Column(unique = true)
 	String username;
 	String password;
@@ -52,22 +53,24 @@ public class User {
 	}
 
 
-	public User(Long userId, String firstName, String middleName, String lastName, String fullName, String gender, int age,
+   
+
+	public User(Long userId, String firstName, String middleName, String lastName, String fullName, String gender,
 			Long mobileNumber, LocalDate dateOfBirth, String religion, String motherToung, String emailId, String caste,
 			String subcaste, String gothram, String maritalStatus, double height, String familyStatus,
 			String familyType, String famiyValues, String disability, String highestEducation, String employementType,
-			String occupation, Long annualIncome, String workLocation, String username, String password) {
+			String occupation, Long income, String workLocation, int age, String username,
+			String password) {
 		super();
 		this.userId = userId;
 		this.firstName = firstName;
 		this.middleName = middleName;
 		this.lastName = lastName;
-		this.fullName= fullName;
-		this.age=age;
+		this.fullName = fullName;
 		this.gender = gender;
 		this.mobileNumber = mobileNumber;
 		this.dateOfBirth = dateOfBirth;
-		Religion = religion;
+		this.religion = religion;
 		this.motherToung = motherToung;
 		this.emailId = emailId;
 		this.caste = caste;
@@ -82,11 +85,15 @@ public class User {
 		this.highestEducation = highestEducation;
 		EmployementType = employementType;
 		this.occupation = occupation;
-		this.annualIncome = annualIncome;
+		this.income = income;
 		WorkLocation = workLocation;
+		this.age = age;
+		
 		this.username = username;
 		this.password = password;
 	}
+
+
 
 
 	public Long getUserId() {
@@ -159,14 +166,21 @@ public class User {
 	}
 
 
+	
+
+
 	public String getReligion() {
-		return Religion;
+		return religion;
 	}
+
+
 
 
 	public void setReligion(String religion) {
-		Religion = religion;
+		this.religion = religion;
 	}
+
+
 
 
 	public String getMotherToung() {
@@ -308,15 +322,21 @@ public class User {
 		this.occupation = occupation;
 	}
 
+   
 
-	public Long getAnnualIncome() {
-		return annualIncome;
+
+	public Long getIncome() {
+		return income;
 	}
 
 
-	public void setAnnualIncome(Long annualIncome) {
-		this.annualIncome = annualIncome;
+
+
+	public void setIncome(Long income) {
+		this.income = income;
 	}
+
+
 
 
 	public String getWorkLocation() {
@@ -372,6 +392,10 @@ public class User {
 	public void setAge(int age) {
 		this.age = age;
 	}
+
+
+
+	
 
 
 

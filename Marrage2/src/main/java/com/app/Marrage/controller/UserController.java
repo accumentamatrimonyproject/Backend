@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.Marrage.model.User;
-
+import com.app.Marrage.service.UserServiceInterface;
 import com.app.Marrage.service.UserserviceImp;
 
 @RestController
@@ -21,7 +21,7 @@ public class UserController {
 	
 	
 	@Autowired
-	UserserviceImp userservice;
+	UserServiceInterface userservice;
 	
 	@GetMapping("/test")
 	public String test()
@@ -84,6 +84,94 @@ public class UserController {
 		 
 	     
 	 }
+	 
+	 
+	  //search by age
+	  @GetMapping("/filterByAgeRange/{startAge}-{endAge}")
+	    public ResponseEntity<List<User>> filterByAgeRange(@PathVariable int startAge, @PathVariable int endAge) {
+	        List<User> users = userservice.getUsersByAgeRange(startAge, endAge);
+	        if (!users.isEmpty()) {
+	            return ResponseEntity.ok(users);
+	        } else {
+	            return ResponseEntity.notFound().build();
+	        }
+	    }
+	  
+	  
+	  
+	  @GetMapping("/filterByIncome/{startIncome}-{endIncome}")
+	  public ResponseEntity<List<User>> filterByIncome(@PathVariable Long startIncome,@PathVariable Long endIncome)
+	  {
+		  List<User> users = userservice.getUserByIncomeRange(startIncome,endIncome);
+		  
+		  if(!users.isEmpty())
+		  {
+			  return ResponseEntity.ok(users);
+		  }
+		  else
+		  {
+			  return ResponseEntity.notFound().build();
+		  }
+	  }
+	  
+	  
+		 @GetMapping("/searchByCaste/{caste}")
+		 public ResponseEntity<List<User>> searchByCaste(@PathVariable String caste)
+		 {
+			 List<User> users = userservice.getByCaste(caste);
+			 
+			 if(!users.isEmpty())
+			 {
+				 return ResponseEntity.ok(users);
+			 }
+			 else
+			 {
+				 return ResponseEntity.notFound().build();
+			 }
+			 
+		 }
+		 
+		 
+		 @GetMapping("/searchByReligion/{religion}")
+		 public ResponseEntity<List<User>> searchByReligion(@PathVariable String religion)
+		 {
+			 List<User> users = userservice.getByReligion(religion);
+			 
+			 if(!users.isEmpty())
+			 {
+				 return ResponseEntity.ok(users);
+			 }
+			 else
+			 {
+				 return ResponseEntity.notFound().build();
+			 }
+					
+		 }
+		 
+		 
+		 @GetMapping("/searchByOccupation/{occupation}")
+		 public ResponseEntity<List<User>> searchByoccupation(@PathVariable String occupation)
+		 {
+			 List<User> users = userservice.getByOccupation(occupation);
+			 
+			 if(!users.isEmpty())
+			 {
+				 return ResponseEntity.ok(users);
+			 }
+			 else
+			 {
+				 return ResponseEntity.notFound().build();
+			 }
+					
+		 }
+		 
+		 
+	 
+	 
+	 
+	 
+	 
+	 
 	 
 	
 

@@ -45,4 +45,38 @@ public class UserserviceImp implements UserServiceInterface {
 		return userrepository.findByGender(gender);
 	}
 
+	@Override
+	public List<User> getUsersByAgeRange(int startAge, int endAge) {
+		// TODO Auto-generated method stub
+		return userrepository.findByAgeBetween(startAge, endAge);
+	}
+
+	@Override
+	public List<User> getUserByIncomeRange(Long startIncome, Long endIncome) {
+		
+		return userrepository.findByIncomeBetween(startIncome,endIncome);
+	}
+
+
+	@Override
+	public List<User> getByCaste(String caste) {
+		
+		return userrepository.findByCaste(caste);
+	}
+
+	@Override
+	public List<User> getByReligion(String religion) {
+		// TODO Auto-generated method stub
+		return userrepository.findByReligion(religion);
+	}
+
+	@Override
+	public List<User> getByOccupation(String occupation) {
+		// TODO Auto-generated method stub
+		return userrepository.findByOccupation(occupation);
+	}
+	
+
+
+
 }

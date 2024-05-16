@@ -16,6 +16,16 @@ public interface UserServiceInterface {
 	List<User> getByPartialName(String name);
 
 	List<User> getByGender(String gender);
+
+	List<User> getUsersByAgeRange(int startAge, int endAge);
+
+	List<User> getUserByIncomeRange(Long startIncome, Long endIncome);
+
+	List<User> getByCaste(String caste);
+
+	List<User> getByReligion(String religion);
+
+	List<User> getByOccupation(String occupation);
 	
 	
 	
