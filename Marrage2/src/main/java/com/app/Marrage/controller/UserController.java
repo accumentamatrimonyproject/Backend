@@ -44,6 +44,7 @@ public class UserController {
 	@GetMapping("/findAll")
 	public List<User> getAllUsers()
 	{
+		System.out.println("frpm front end");
 		List<User> users = userservice.getAllUsers();
 		
 		return users;
